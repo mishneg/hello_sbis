@@ -63,8 +63,5 @@ jobs:
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |- 
-        # replacing the image name in the k8s template
-        ./kustomize edit set image GITLAB/USER/PROJECT/IMAGE:TAG=registry.gitlab.com/mishneg/hello_sbis/$IMAGE:$TAG
-        ./kustomize build . | kubectl apply -f -
-        kubectl rollout status deployment/$DEPLOYMENT_NAME
-        kubectl get services -o wide
+        kubectl get nodes 
+        helm - helm version
