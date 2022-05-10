@@ -1,7 +1,7 @@
 body {
   margin:0;
   padding:0;
-  background-color:#e100ff;
+  background-color:#333333;
 }
 
 div.main { 
@@ -13,7 +13,7 @@ div.main img {
 }
 
 div.content {   
-  color:#03fe67; 
+  color:#f2f2f2; 
 }
 
 .content #message {
