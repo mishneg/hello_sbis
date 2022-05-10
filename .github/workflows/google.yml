@@ -63,5 +63,5 @@ jobs:
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |- 
-        helm install hell-sbis hello-kubernete/deploy/helm/hello-kubernetes/
+        helm upgrade -i hell-sbis hello-kubernete/deploy/helm/hello-kubernetes/
        
