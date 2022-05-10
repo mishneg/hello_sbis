@@ -50,11 +50,11 @@ jobs:
     # Build the Docker image
     - name: Build
       run: |-
-          docker build --tag "$IMAGE:$TAG" --file hello-kubernete/src/app/Dockerfile hello-kubernete/src/app/
+          docker build --tag "registry.gitlab.com/mishneg/hello_sbis/$IMAGE:$TAG" --file hello-kubernete/src/app/Dockerfile hello-kubernete/src/app/
     # Push the Docker image to Google Artifact Registry
     - name: Publish
       run: |-
-        docker push "registry.gitlab.com/mishneg/$IMAGE:$TAG"
+        docker push "registry.gitlab.com/mishneg/hello_sbis/$IMAGE:$TAG"
     # Set up kustomize
     - name: Set up Kustomize
       run: |-
@@ -64,7 +64,7 @@ jobs:
     - name: Deploy
       run: |- 
         # replacing the image name in the k8s template
-        ./kustomize edit set image GITLAB/USER/IMAGE:TAG=registry.gitlab.com/mishneg/$IMAGE:$TAG
+        ./kustomize edit set image GITLAB/USER/PROJECT/IMAGE:TAG=registry.gitlab.com/mishneg/hello_sbis/$IMAGE:$TAG
         ./kustomize build . | kubectl apply -f -
         kubectl rollout status deployment/$DEPLOYMENT_NAME
         kubectl get services -o wide
