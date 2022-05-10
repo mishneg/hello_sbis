@@ -11,7 +11,7 @@ env:
   GKE_CLUSTER: cluster-1    # TODO: update to cluster name
   DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
   REPOSITORY: samples # TODO: update to Artifact Registry docker repository
-  IMAGE: hell_sbis
+  IMAGE: hell-sbis
   TAG: 1.0.0
 
 jobs:
@@ -63,5 +63,5 @@ jobs:
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |- 
-        helm install hell_sbis hello-kubernete/deploy/helm/hello-kubernetes/ -f deploy/helm/hello-kubernetes/templates/values.yaml
+        helm install hell-sbis hello-kubernete/deploy/helm/hello-kubernetes/ -f deploy/helm/hello-kubernetes/templates/values.yaml
        
