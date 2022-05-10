@@ -64,4 +64,4 @@ jobs:
     - name: Deploy
       run: |- 
         kubectl get nodes 
-        helm - helm version
+        helm version
